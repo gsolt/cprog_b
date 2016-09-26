@@ -49,6 +49,8 @@
 * V2.1.46	2015.10.27	Gergely Zsolt		Veszprém DAC  RSLINK13 -> LINE1			*
 * V2.1.47	2015.11.23	Gergely Zsolt		Körmend DAC   -> LINE1			*
 * V2.1.48	2016.04.19	Gergely Zsolt		Kékkút, kábelköri Radio9/9			*
+* V2.1.49	2016.09.20	Gergely Zsolt		71-43 2/6			*
+* V2.1.50	2016.09.26.	Gergely Zsolt		87-40, 87-43, 31-67, 87-34, 87-90			*
 
 
 
@@ -500,7 +502,7 @@ MOSCAD_init_sitetable();
 /* 268 21-07	RADIO8_1		ESZT		*/ MOSCAD_add_new_site(3197,RADIO7_1);
 /* 269 37-199   RADIO3_5        VESZ        */ MOSCAD_add_new_site(5072,RADIO3_5);
 /* 270--------------------------------------279*/
-/* 270 71-43	RADIO2_2		PAP			*/ MOSCAD_add_new_site(3233,RADIO2_2);
+/* 270 71-43	RADIO2_2		PAP			*/ MOSCAD_add_new_site(3233,RADIO2_6);
 /* 271 Balatonfured Anna Grand Hotel RADIO2_3 VESZ*/ 	MOSCAD_add_new_site(3224,RADIO6_1);
 /* 272 51-42	RADIO2_2					*/ MOSCAD_add_new_site(3170,RADIO2_2);
 /* 273 51-41	RADIO2_2					*/ MOSCAD_add_new_site(3168,RADIO2_2);

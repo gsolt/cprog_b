@@ -2413,7 +2413,7 @@ if (pTAL->nIEC_MT_KommHiba != 0)
 					nData = nRxBuf[29];	
 					nVal =  nData  & 1;    
 					
-					fnWriteSPData(pTAL->nIEC_MT_KommHiba,nData , 0,0,0,0);
+					fnWriteSPData(pTAL->nIEC_MT_KommHiba,nVal , 0,0,0,0);
 					}
 					else
 					{
