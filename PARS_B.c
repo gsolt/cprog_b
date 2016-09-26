@@ -335,7 +335,7 @@ ST[0].nSiteList[154]	=2017;	ST[0].nLinkList[154]	=RADIO1_4;	/* Gyor, EETEK			RAD
 ST[0].nSiteList[155]	=3095;	ST[0].nLinkList[155]	=RADIO1_6;	/* TMOK 61-80, PM6		RADIO1_6 		GYR*/
 ST[0].nSiteList[156]	=2020;	ST[0].nLinkList[156]	=RADIO3_7;	/* Balf, gazmotor 		RADIO3_4 		SOP*/
 ST[0].nSiteList[157]	=109;	ST[0].nLinkList[157]	=RADIO5_5;	/* TMOK 40-70	 		RADIO5_7 		KOR*/
-ST[0].nSiteList[158]	=3096;	ST[0].nLinkList[158]	=RADIO7_5;	/* TMOK 31-67	 		RADIO7_5 		BI*/
+ST[0].nSiteList[158]	=3096;	ST[0].nLinkList[158]	=RADIO7_6;	/* TMOK 31-67	 		RADIO7_5 		BI*/
 ST[0].nSiteList[159]	=3153;	ST[0].nLinkList[159]	=RADIO6_3;	/* Balatonalmadi,gazmotor				VESZ*/
 ST[0].nSiteList[160]	=3101;	ST[0].nLinkList[160]	=RADIO2_2;	/* TMOK 90-05	 		RADIO2_2 		SUM*/
 ST[0].nSiteList[161]	=3099;	ST[0].nLinkList[161]	=RADIO2_1;	/* TMOK 37-21	 		RADIO2_1 		VESZ*/
@@ -357,12 +357,12 @@ ST[0].nSiteList[176]	=3112;	ST[0].nLinkList[176]	=RADIO7_5;	/* TMOK 87-28	 		RAD
 ST[0].nSiteList[177]	=3115;	ST[0].nLinkList[177]	=RADIO7_5;	/* TMOK 87-33	 		RADIO7_5 		BI*/
 ST[0].nSiteList[178]	=3116;	ST[0].nLinkList[178]	=RADIO7_6;	/* TMOK 87-34	 		RADIO7_6 		BI*/
 ST[0].nSiteList[179]	=3117;	ST[0].nLinkList[179]	=RADIO7_5;	/* TMOK 87-35	 		RADIO7_5 		BI*/
-ST[0].nSiteList[180]	=3118;	ST[0].nLinkList[180]	=RADIO7_5;	/* TMOK 87-40	 		RADIO7_5 		BI*/
-ST[0].nSiteList[181]	=3120;	ST[0].nLinkList[181]	=RADIO7_5;	/* TMOK 87-43	 		RADIO7_5 		BI*/
+ST[0].nSiteList[180]	=3118;	ST[0].nLinkList[180]	=RADIO7_7;	/* TMOK 87-40	 		RADIO7_5 		BI*/
+ST[0].nSiteList[181]	=3120;	ST[0].nLinkList[181]	=RADIO7_7;	/* TMOK 87-43	 		RADIO7_5 		BI*/
 ST[0].nSiteList[182]	=3121;	ST[0].nLinkList[182]	=RADIO7_5;	/* TMOK 87-62	 		RADIO7_5 		BI*/
 ST[0].nSiteList[183]	=3122;	ST[0].nLinkList[183]	=RADIO7_5;	/* TMOK 87-71	 		RADIO7_5 		BI*/
 ST[0].nSiteList[184]	=3123;	ST[0].nLinkList[184]	=RADIO7_5;	/* TMOK 87-72	 		RADIO7_5 		BI*/
-ST[0].nSiteList[185]	=3124;	ST[0].nLinkList[185]	=RADIO7_5;	/* TMOK 87-90	 		RADIO7_5 		BI*/
+ST[0].nSiteList[185]	=3124;	ST[0].nLinkList[185]	=RADIO7_6;	/* TMOK 87-90	 		RADIO7_5 		BI*/
 ST[0].nSiteList[186]	=3134;	ST[0].nLinkList[186]	=RADIO4_1;	/* TMOK 86-88	 		RADIO4_6 		PAP*/
 ST[0].nSiteList[187]	=3135;	ST[0].nLinkList[187]	=RADIO1_5;	/* TMOK 86-95	 		RADIO1_5 		GYR*/
 ST[0].nSiteList[188]	=45;	ST[0].nLinkList[188]	=RADIO1_1;	/* TMOK 62-23	 		RADIO1_1 		GYR*/

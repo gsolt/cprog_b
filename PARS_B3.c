@@ -1610,7 +1610,7 @@ sT[0].sTI[146].nType = TYP_TAL;
 		sT[0].sTAL[146].nIEC_MT_KommHiba	= 2533;
 		sT[0].sTAL[146].nKommStatusNum		= 2;		
 		sT[0].sTAL[146].nIEC_DP       		= 226;
-		sT[0].sTAL[146].nIEC_DP_FSZ1  		= 230;
+		sT[0].sTAL[146].nIEC_DP_FSZ1  		= 230; 
 		sT[0].sTAL[146].nIEC_NM				= 455;
 		sT[0].sTAL[146].nNMNum		  		= 2;
 
