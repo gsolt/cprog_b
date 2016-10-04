@@ -259,7 +259,7 @@ ST[0].nSiteList[78]	=3020;	ST[0].nLinkList[78]	=RADIO3_1;	/* TMOK 60-45, 			RADI
 ST[0].nSiteList[79]	=3060;	ST[0].nLinkList[79]	=RADIO4_1;	/* TMOK 86-55, 			RADIO4_6 		PAP*/
 ST[0].nSiteList[80]	=3054;	ST[0].nLinkList[80]	=RADIO4_1;	/* TMOK 71-65, 			RADIO4_6 		GYR*/
 ST[0].nSiteList[81]	=3050;	ST[0].nLinkList[81]	=RADIO2_3;	/* TMOK 72-04, 			RADIO2_2 		VESZ*/
-ST[0].nSiteList[82]	=3094;	ST[0].nLinkList[82]	=RADIO2_3;	/* TMOK 71-11, 			RADIO2_2 		VESZ*/
+ST[0].nSiteList[82]	=3094;	ST[0].nLinkList[82]	=RADIO2_8;	/* TMOK 71-11, 			RADIO2_2 		VESZ*/
 ST[0].nSiteList[83]	=3021;	ST[0].nLinkList[83]	=RADIO3_1;	/* TMOK 61-79, 			RADIO3_1 		SOP*/
 ST[0].nSiteList[84]	=3022;	ST[0].nLinkList[84]	=RADIO3_1;	/* TMOK 61-81, 			RADIO3_1 		SOP*/
 ST[0].nSiteList[85]	=3048;	ST[0].nLinkList[85]	=RADIO4_6;	/* TMOK 70-65, 			RADIO4_6 		PAP*/
