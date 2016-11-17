@@ -70,6 +70,7 @@ void MOT_DATA2(STATION_DESC_MOT	*pMOT, unsigned char *buf);
 void TALUS_EVENT(STATION_DESC_TALUS *pTAL, unsigned char *rx_buf);
 void TALUS_DAT(STATION_DESC_TALUS *pTAL, unsigned char *rx_buf);
 void TMOK_DATA(STATION_DESC_MOT	*pMOT, unsigned char *buf);
+void TMOK_DATA2(STATION_DESC_MOT	*pMOT, unsigned char *rx_buf);
 void fnWriteDPData(int nIEC_Offset, int nDataH,int nDataL, int nMS1, int nMS2, int nMin, int nCTAct);
 void tx_command(void);
 void rx(void);
@@ -753,7 +754,12 @@ nMoscadHours = mdt.hours;
  			else if (nType == TYP_MOT2 && nRxBuf[0] == 31 )
  			{
  				MOT_DATA2(&sMOT[site_inx],rx_buffer);
- 			} 			
+ 			} 		
+			else if (nType == TYP_TMOK2 && nRxBuf[0] == 89 )
+ 			{
+ 				TMOK_DATA2(&sMOT[site_inx],rx_buffer);
+ 			} 	
+	
 		
  			else
  			{
@@ -3188,7 +3194,7 @@ if (sTI[nI].nType == TYP_TAL) /* TALUS-os allomas eseten -----------------------
 	
 	} /* end if TYP_TAL */
 	
-if (sTI[nI].nType == TYP_MOT || sTI[nI].nType == TYP_TMOK || sTI[nI].nType == TYP_MOT2) /* MOTOROLA-s allomas eseten --------------------------*/
+if (sTI[nI].nType == TYP_MOT || sTI[nI].nType == TYP_TMOK || sTI[nI].nType == TYP_MOT2 || sTI[nI].nType == TYP_TMOK2) /* MOTOROLA-s allomas eseten --------------------------*/
 	{
 		/* Egy bites jelzesek --------------------------------*/
 		for (nJ=0;nJ<sMOT[nI].nIEC_SP_NUM;nJ++)
@@ -3253,3 +3259,184 @@ if (sTI[nI].nType == TYP_MOT || sTI[nI].nType == TYP_TMOK || sTI[nI].nType == TY
 	
 	
 } /* end fnSetStatus */
+
+/****************************************************************************/
+/* TMOK2 allomas adatfeldolgozas, 3 fázisáram méréssel											*/
+/****************************************************************************/
+void TMOK_DATA2(STATION_DESC_MOT	*pMOT, unsigned char *rx_buf)
+{
+int		nI;	
+
+int		nIEC_Offset;
+
+int		nDPTblIndx;
+int		nMOSCAD_OffsetDP;
+
+int		nNMStart;
+
+int		nDPStart;
+unsigned int		nData;
+
+int		nVal;
+
+int		nMin;
+int		nMs1;
+int		nMs2;
+
+
+
+
+        MOSCAD_sprintf(message,"TMOK2 data: %d",rx_buf[5]);
+        MOSCAD_error(message );
+
+
+
+	p_col_RxBuf = (short *)(rx_buf);	
+
+
+
+
+ 		nMin		 = p_col_RxBuf[9] & 0xff;
+		nMs1		 = p_col_RxBuf[10] & 0xff;
+		nMs2		 = p_col_RxBuf[10] >>8;
+
+ 
+
+
+
+
+
+	/* Mérések feldolgozása ----------------------------------------------------------------------------------------*/
+	/*  !!!!! Ha LiveZero = 1, akkor azt a letra programban kell jelezni !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	
+	for (nI=0; nI < pMOT->nNMNum && nI<4; nI++)
+	{
+		nNMStart = pMOT->nIEC_NM;
+		if (nNMStart>0)
+		{		
+	   		/*p_col_NM     = (short *)(table_NM.ColDataPtr[0]);
+		   	p_col_NM_LZ  = (short *)(table_NM.ColDataPtr[1]);
+			p_col_NM[nNMStart+nI] = p_col_RxBuf[4+nI];*/
+			
+			fnWriteNM( nNMStart+nI,p_col_RxBuf[5+nI]);			
+			
+		}
+	} /*end for*/
+
+	/*  !!!!! Ha LiveZero = 1, akkor azt a letra programban kell jelezni !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+	
+	for (nI=0; nI < pMOT->nNMNum2 && nI<4; nI++)
+	{
+		nNMStart = pMOT->nIEC_NM2;
+		if (nNMStart>0)
+		{		
+			
+			fnWriteNM( nNMStart+nI,p_col_RxBuf[15+nI]);			
+			
+		}
+	} /*end for*/
+
+	
+/* Egybites jelzések feldolgozása ----------------------------------------------------------------------------------------*/
+if (pMOT->nIEC_SP_NUM > 0)
+{
+	for (nI=0; nI < pMOT->nIEC_SP_NUM && nI<16; nI++)
+	{
+
+		
+		nIEC_Offset = pMOT->nIEC_SP + nI;
+		nData = p_col_RxBuf[2];
+		
+		nVal = (nData << nI) & 0x8000;		
+		fnWriteSPData(nIEC_Offset,nVal,  nMs1,nMs2,nMin,1);			
+			
+	} /*end for*/
+	
+	
+	for (nI=16; nI < pMOT->nIEC_SP_NUM && nI<32; nI++)
+	{		
+		nIEC_Offset = pMOT->nIEC_SP + nI;
+		nData = p_col_RxBuf[3];
+		
+		nVal = (nData << (nI-16)) & 0x8000;		
+		fnWriteSPData(nIEC_Offset,nVal,  nMs1,nMs2,nMin,1);			
+			
+	} /*end for*/
+	
+	
+} /*end if*/
+
+/* Kétbites állásjelzések, feldolgozása ----------------------------------------------------------------------------------------*/
+/* A program feltetelezi, hogy a ketbites jelzesek a 8. szotol kezdodnek az RxBuf-ban*/
+
+		
+	nDPStart = 	pMOT->nIEC_DP;
+	
+	/* DP tabla indexe, es offsete */
+	fnDPTblIndx(nDPStart,&nDPTblIndx,&nMOSCAD_OffsetDP);
+
+	/* 2 bites */
+   	if (MOSCAD_get_table_info (nDPTblIndx,&table_DP)!=0 )
+   		{
+        MOSCAD_sprintf(message,"No valid information in table: %d",nDPTblIndx);
+        MOSCAD_error(message );
+        return;
+   		}
+
+	p_col_DPH     = (short *)(table_DP.ColDataPtr[0]);			/* DPH -> CLOSE */
+	p_col_DPL     = (short *)(table_DP.ColDataPtr[1]);			/* DPL -> OPEN */
+	p_col_DP_MS1  = (short *)(table_DP.ColDataPtr[2]);
+	p_col_DP_MS2  = (short *)(table_DP.ColDataPtr[3]);
+	p_col_DP_MIN  = (short *)(table_DP.ColDataPtr[4]);
+	p_col_DP_CT   = (short *)(table_DP.ColDataPtr[5]); 						
+
+	nData = p_col_RxBuf[4];	
+	
+if (	nDPStart > 0)
+{
+	for (nI=0; nI < pMOT->nIEC_DP_NUM && nI<8; nI++)
+	{	
+		
+		nVal = (nData << nI*2) & 0x8000;
+ 										
+			/* Perc beirasa */		
+			p_col_DP_MIN[nDPStart+nI - nMOSCAD_OffsetDP] = nMin;	
+															
+			/* MS1 beirasa */		
+			p_col_DP_MS1[nDPStart+nI- nMOSCAD_OffsetDP] = nMs1;
+						
+			/* MS2 beirasa */		
+			p_col_DP_MS2[nDPStart+nI- nMOSCAD_OffsetDP] = nMs2;
+ 				 				
+ 				
+ 				if (nVal > 0)
+					{
+						p_col_DPH[nDPStart+nI- nMOSCAD_OffsetDP]= 1;
+					}
+					else
+					{
+						p_col_DPH[nDPStart+nI- nMOSCAD_OffsetDP]= 0;
+					}
+	
+ 		
+				nVal = (nData << (nI*2+1)) & 0x8000;
+				
+				if (nVal > 0)
+					{
+						p_col_DPL[nDPStart+nI- nMOSCAD_OffsetDP]= 1;
+					}
+					else
+					{
+						p_col_DPL[nDPStart+nI- nMOSCAD_OffsetDP]= 0;
+					}		 		
+					
+			/* A kapott idõt kell használni */
+			p_col_DP_CT[nDPStart+nI- nMOSCAD_OffsetDP]	 = 1;	
+
+	}
+}/*end if*/	
+} /*TMOK_DATA2*/
+/*-----------------------------------------------------------------------------------------------*/
+
+
+
