@@ -371,7 +371,7 @@ ST[0].nSiteList[190]	=3223;	ST[0].nLinkList[190]	=RADIO8_4;	/* Nyergesújfalu, Et
 ST[0].nSiteList[191]	=5042;	ST[0].nLinkList[191]	=RADIO9_6;	/* TMOK 90-82	 		RADIO9_5 		SUM*/
 ST[0].nSiteList[192]	=3130;	ST[0].nLinkList[192]	=RADIO8_3;	/* TMOK 21-66	 		RADIO8_2 		ESZT*/
 ST[0].nSiteList[193]	=3131;	ST[0].nLinkList[193]	=RADIO8_6;	/* TMOK 21-81	 		RADIO8_3 		ESZT*/
-ST[0].nSiteList[194]	=3132;	ST[0].nLinkList[194]	=RADIO8_2;	/* TMOK 21-84	 		RADIO8_2 		ESZT*/
+ST[0].nSiteList[194]	=3132;	ST[0].nLinkList[194]	=RADIO8_6;	/* TMOK 21-84	 		RADIO8_2 		ESZT*/
 ST[0].nSiteList[195]	=5089;	ST[0].nLinkList[195]	=RADIO9_5;	/* TMOK 90-90	 		RADIO9_5 		SUM*/
 ST[0].nSiteList[196]	=3137;	ST[0].nLinkList[196]	=RADIO1_5;	/* TMOK 11-81	 		RADIO1_5 		GYR*/
 ST[0].nSiteList[197]	=3138;	ST[0].nLinkList[197]	=RADIO1_5;	/* TMOK 10-01, 10-20	RADIO1_5 		GYR*/
