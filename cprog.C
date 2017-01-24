@@ -755,7 +755,7 @@ nMoscadHours = mdt.hours;
  			{
  				MOT_DATA2(&sMOT[site_inx],rx_buffer);
  			} 		
-			else if (nType == TYP_TMOK2 && nRxBuf[0] == 89 )
+			else if (nType == TYP_TMOK && nRxBuf[0] == 89 )
  			{
  				TMOK_DATA2(&sMOT[site_inx],rx_buffer);
  			} 	
