@@ -2447,8 +2447,9 @@ sT[0].sTI[246].nType = TYP_TMOK;
 
 	sT[0].sMOT[246].nIEC_SP			= 4337;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[246].nIEC_DP			= 435;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[246].nIEC_NM			= 800;		/* Mérések IEC kezdõcíme */	
-
+	sT[0].sMOT[246].nIEC_NM			= 956;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[246].nNMNum      	= 4;
+	
 /*  TMOK, 51-09  -----------------------------------------------------------*/	
 sT[0].sTI[247].nType = TYP_TMOK;	
 
