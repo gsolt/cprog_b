@@ -380,7 +380,7 @@ ST[0].nSiteList[199]	=3141;	ST[0].nLinkList[199]	=RADIO3_1;	/* Fertoszentmiklos	
 ST[0].nSiteList[200]	=3142;	ST[0].nLinkList[200]	=RADIO2_2;	/* TMOK 71-44			RADIO2_2 		PAP*/
 ST[0].nSiteList[201]	=3143;	ST[0].nLinkList[201]	=RADIO1_5;	/* TMOK 13-85			RADIO1_5 		GYR*/
 ST[0].nSiteList[202]	=3144;	ST[0].nLinkList[202]	=RADIO8_2;	/* TMOK 21-21,21-22		RADIO8_2 		ESZT*/
-ST[0].nSiteList[203]	=3145;	ST[0].nLinkList[203]	=RADIO3_3;	/* Sopron, Ipari Park	RADIO3_4 		SOP*/
+ST[0].nSiteList[203] 	=3145;	ST[0].nLinkList[203]	=RADIO3_3;	/* Sopron, Ipari Park	RADIO3_4 		SOP*/
 ST[0].nSiteList[204]	=3146;	ST[0].nLinkList[204]	=RADIO2_1;	/* Veszpr, Balat. Plaza RADIO2_1 		VESZ*/
 ST[0].nSiteList[205]	=3147;	ST[0].nLinkList[205]	=RADIO3_3;	/* Sopron, Szemettelep 	RADIO3_4 		SOP*/
 ST[0].nSiteList[206]	=3148;	ST[0].nLinkList[206]	=RADIO2_1;	/* Veszpr, Csolnoky kor RADIO2_1 		VESZ*/
