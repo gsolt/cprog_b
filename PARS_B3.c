@@ -2026,7 +2026,8 @@ sT[0].sTI[196].nType = TYP_TMOK;
 
 	sT[0].sMOT[196].nIEC_SP			= 3294;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[196].nIEC_DP			= 307;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[196].nIEC_NM			= 613;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[196].nIEC_NM			= 940;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[196].nNMNum      	= 4;
 
 /* 10-01, 10-20 -----------------------------------------------------------*/
 
@@ -2377,9 +2378,10 @@ sT[0].sTI[236].nType = TYP_TMOK;
 
 	sT[0].sMOT[236].nIEC_SP			= 4177;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[236].nIEC_DP			= 425;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[236].nIEC_NM			= 770;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[236].nIEC_NM			= 996;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[236].nNMNum      	= 4;
 
-/*  TMOK, 51-53  -----------------------------------------------------------*/	
+/*  TMOK, 13-73  -----------------------------------------------------------*/	
 sT[0].sTI[237].nType = TYP_TMOK;	
 
 	sT[0].sMOT[237].nIEC_SP			= 4193;		/* Egybites értékek IEC kezdõcíme*/
@@ -2464,7 +2466,8 @@ sT[0].sTI[248].nType = TYP_TMOK;
 
 	sT[0].sMOT[248].nIEC_SP			= 4369;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[248].nIEC_DP			= 437;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[248].nIEC_NM			= 806;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[248].nIEC_NM			= 1004;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[248].nNMNum      	= 4;
 
 /*  TMOK, 71-16  -----------------------------------------------------------*/	
 sT[0].sTI[249].nType = TYP_TMOK;	
@@ -2595,7 +2598,8 @@ sT[0].sTI[266].nType = TYP_TMOK;
 
 	sT[0].sMOT[266].nIEC_SP			= 4657;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[266].nIEC_DP			= 455;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[266].nIEC_NM			= 860;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[266].nIEC_NM			= 960;		/* Mérések IEC kezdõcíme */	
+	sT[0].sMOT[266].nNMNum      	= 4;
 
 /*  TMOK, 72-90  -----------------------------------------------------------*/	
 sT[0].sTI[267].nType = TYP_TMOK;	
