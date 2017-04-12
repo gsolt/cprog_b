@@ -1166,7 +1166,8 @@ sT[0].sTI[92].nType = TYP_TMOK;
 
 	sT[0].sMOT[92].nIEC_SP			= 1474;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[92].nIEC_DP			= 115;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[92].nIEC_NM			= 282;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[92].nIEC_NM			= 1016;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[92].nNMNum      		= 4;
 
 /*  Kabhegy atjatszo  -----------------------------------------------------------*/	
 sT[0].sTI[93].nType = TYP_MOT;	
