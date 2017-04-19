@@ -191,7 +191,7 @@ ST[0].nSiteList[10]	=3002;	ST[0].nLinkList[10]	=LINE1;	/* Sopronkovesd atjatszo*
 ST[0].nSiteList[11]	=62;	ST[0].nLinkList[11]	=RADIO1_6;	/* TMOK, 64-67 							GYR*/
 ST[0].nSiteList[12]	=64;	ST[0].nLinkList[12]	=RADIO3_1;	/* TMOK, 61-71, 		RADIO1_6 		GYR*/
 ST[0].nSiteList[13]	=63;	ST[0].nLinkList[13]	=RADIO1_6;	/* TMOK, 61-76, 		RADIO1_6 		GYR*/
-ST[0].nSiteList[14]	=61;	ST[0].nLinkList[14]	=RADIO1_6;	/* TMOK, 61-60 							GYR*/
+ST[0].nSiteList[14]	=61;	ST[0].nLinkList[14]	=RADIO1_6;	/* TMOK, 61-64 							GYR*/
 ST[0].nSiteList[15]	=3003;	ST[0].nLinkList[15]	=LINE1;		/* Pápa atjatszo, 		RST[0].sLINK17*/
 ST[0].nSiteList[16]	=3005;	ST[0].nLinkList[16]	=RADIO6_1;	/* TMOK, 51-48, 		RADIO2_1 		VESZ*/
 ST[0].nSiteList[17]	=3004;	ST[0].nLinkList[17]	=RADIO4_1;	/* Korishegy atjatszo, 	RADIO4_5		PAP*/

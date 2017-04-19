@@ -603,7 +603,7 @@ sT[0].sTI[13].nType = TYP_TMOK;
 	sT[0].sMOT[13].nIEC_NM			= 52;		/* Mérések IEC kezdõcíme */		
 	
 
-/*  TMOK, 61-60  -----------------------------------------------------------*/	
+/*  TMOK, 61-64  -----------------------------------------------------------*/	
 sT[0].sTI[14].nType = TYP_TMOK;	
 
 	sT[0].sMOT[14].nIEC_SP			= 220;		/* Egybites értékek IEC kezdõcíme*/
