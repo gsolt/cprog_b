@@ -493,7 +493,7 @@ MOSCAD_init_sitetable();
 
 /* 260 71-61	RADIO4_5		PAP			*/ MOSCAD_add_new_site(3205,RADIO4_5);	
 /* 261 72-89	RADIO4_6		PAP			*/ MOSCAD_add_new_site(3214,RADIO4_6);	
-/* 262 90-83	RADIO9_5		SUM			*/ MOSCAD_add_new_site(3193,RADIO9_5);	
+/* 262 90-83	RADIO9_5		SUM			*/ MOSCAD_add_new_site(3193,RADIO9_6);	
 /* 263 50-86	RADIO2_4		VESZ		*/ MOSCAD_add_new_site(3209,RADIO2_3);
 /* 264 62-29	RADIO1_6		GYR			*/ MOSCAD_add_new_site(3186,RADIO5_1);
 /* 265 20-02	RADIO8_1		ESZT		*/ MOSCAD_add_new_site(3219,RADIO7_2);
