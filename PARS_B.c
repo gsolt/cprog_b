@@ -389,7 +389,7 @@ ST[0].nSiteList[208]	=3150;	ST[0].nLinkList[208]	=RADIO9_9;	/* Kekkut, MOSCAD-L 
 ST[0].nSiteList[209]	=305;	ST[0].nLinkList[209]	=RADIO1_5;	/* TMOK 11-10			RADIO1_5 		GYR*/
 ST[0].nSiteList[210]	=3155;	ST[0].nLinkList[210]	=RADIO8_2;	/* TMOK 21-15,21-73		RADIO8_1 		ESZT*/
 ST[0].nSiteList[211]	=3157;	ST[0].nLinkList[211]	=RADIO1_5;	/* TMOK 10-74			RADIO1_5 		GYR*/
-ST[0].nSiteList[212]	=3158;	ST[0].nLinkList[212]	=RADIO1_5;	/* TMOK 11-22      		RADIO1_5 		GYR*/
+ST[0].nSiteList[212]	=3158;	ST[0].nLinkList[212]	=RADIO1_1;	/* TMOK 11-22      		RADIO1_5 		GYR*/
 ST[0].nSiteList[213]	=3159;	ST[0].nLinkList[213]	=RADIO1_5;	/* TMOK 11-35      		RADIO1_5 		GYR*/
 ST[0].nSiteList[214]	=3160;	ST[0].nLinkList[214]	=RADIO1_5;	/* TMOK 10-19      		RADIO1_5 		GYR*/
 ST[0].nSiteList[215]	=3161;	ST[0].nLinkList[215]	=RADIO5_1;	/* TMOK 11-80      		RADIO1_5 		GYR*/
