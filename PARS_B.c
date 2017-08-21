@@ -326,7 +326,7 @@ ST[0].nSiteList[145]	=2014;	ST[0].nLinkList[145]	=RADIO7_1;	/* Esztergom,Ipari P
 ST[0].nSiteList[146]	=2011;	ST[0].nLinkList[146]	=RADIO7_1;	/* Esztergom,Ipari Park 3.	RADIO8_1 	ESZT*/
 ST[0].nSiteList[147]	=2018;	ST[0].nLinkList[147]	=RADIO6_2;	/* Balatonfured, Furedho 				VESZ*/
 ST[0].nSiteList[148]	=2009;	ST[0].nLinkList[148]	=RADIO5_5;	/* Kormend, Kormendho 					KOR*/
-ST[0].nSiteList[149]	=3089;	ST[0].nLinkList[149]	=RADIO1_5;	/* TMOK 12-90			RADIO1_5 		GYR*/
+ST[0].nSiteList[149]	=3089;	ST[0].nLinkList[149]	=RADIO1_4;	/* TMOK 12-90			RADIO1_5 		GYR*/
 ST[0].nSiteList[150]	=3092;	ST[0].nLinkList[150]	=RADIO1_6;	/* TMOK 61-24			RADIO1_6 		GYR*/
 ST[0].nSiteList[151]	=3090;	ST[0].nLinkList[151]	=RADIO2_1;	/* TMOK 50-22			RADIO2_1 		VESZ*/
 ST[0].nSiteList[152]	=3091;	ST[0].nLinkList[152]	=RADIO2_1;	/* TMOK 50-23			RADIO2_1 		VESZ*/
