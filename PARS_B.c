@@ -233,7 +233,7 @@ ST[0].nSiteList[52]	=59;	ST[0].nLinkList[52]	=RADIO5_1;	/* TMOK 60-97, 			RADIO1
 ST[0].nSiteList[53]	=3011;	ST[0].nLinkList[53]	=RADIO1_8;	/* TMOK 61-38, 			RADIO1_6 		GYR*/
 ST[0].nSiteList[54]	=3012;	ST[0].nLinkList[54]	=RADIO1_6;	/* TMOK 64-31, 			RADIO1_6 		GYR*/
 ST[0].nSiteList[55]	=3025;	ST[0].nLinkList[55]	=RADIO1_5;	/* TMOK 10-23, 			RADIO1_5 		GYR*/
-ST[0].nSiteList[56]	=3026;	ST[0].nLinkList[56]	=RADIO1_5;	/* TMOK 10-26, 			RADIO1_5 		GYR*/
+ST[0].nSiteList[56]	=3026;	ST[0].nLinkList[56]	=RADIO1_4;	/* TMOK 10-26, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[57]	=3042;	ST[0].nLinkList[57]	=RADIO3_4;	/* TMOK 60-02, 			RADIO3_4 		SOP*/
 ST[0].nSiteList[58]	=58;	ST[0].nLinkList[58]	=RADIO5_1;	/* TMOK 61-19, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[59]	=56;	ST[0].nLinkList[59]	=RADIO5_1;	/* TMOK 61-05, 			RADIO1_5 		GYR*/
@@ -241,7 +241,7 @@ ST[0].nSiteList[60]	=3013;	ST[0].nLinkList[60]	=RADIO1_6;	/* TMOK 64-68, 			RADI
 ST[0].nSiteList[61]	=3014;	ST[0].nLinkList[61]	=RADIO5_1;	/* TMOK 62-81, 			RADIO1_6 		GYR*/
 ST[0].nSiteList[62]	=3015;	ST[0].nLinkList[62]	=RADIO3_1;	/* TMOK 60-31, 			RADIO3_1 		SOP*/
 ST[0].nSiteList[63]	=3016;	ST[0].nLinkList[63]	=RADIO3_1;	/* TMOK 60-30, 			RADIO3_1 		SOP*/
-ST[0].nSiteList[64]	=3027;	ST[0].nLinkList[64]	=RADIO1_5;	/* TMOK 10-43, 			RADIO1_5 		GYR*/
+ST[0].nSiteList[64]	=3027;	ST[0].nLinkList[64]	=RADIO1_1;	/* TMOK 10-43, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[65]	=3028;	ST[0].nLinkList[65]	=RADIO1_5;	/* TMOK 10-72, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[66]	=3043;	ST[0].nLinkList[66]	=RADIO3_3;	/* TMOK 60-14, 			RADIO3_4 		SOP*/
 ST[0].nSiteList[67]	=3044;	ST[0].nLinkList[67]	=RADIO3_3;	/* TMOK 62-24, 			RADIO3_4 		SOP*/
