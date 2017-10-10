@@ -11,6 +11,7 @@
 #define  TYP_TAL_EVENT	4
 #define  TYP_MOT2		5
 #define  TYP_TMOK2		8
+#define  TYP_FRONTEND	11
 
 
 #define	TOPICAL			1
