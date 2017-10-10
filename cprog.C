@@ -71,7 +71,6 @@ void TALUS_EVENT(STATION_DESC_TALUS *pTAL, unsigned char *rx_buf);
 void TALUS_DAT(STATION_DESC_TALUS *pTAL, unsigned char *rx_buf);
 void TMOK_DATA(STATION_DESC_MOT	*pMOT, unsigned char *buf);
 void TMOK_DATA2(STATION_DESC_MOT	*pMOT, unsigned char *rx_buf);
-void fnWriteDPData(int nIEC_Offset, int nDataH,int nDataL, int nMS1, int nMS2, int nMin, int nCTAct);
 void tx_command(void);
 void rx(void);
 void com_check(void);
@@ -100,6 +99,11 @@ extern void fnSetDinamicSiteTable(void);
 
 extern void setdat2(unsigned char *input);
 extern void setdat(unsigned char *input);
+
+/* 2017.09*/
+extern void fnWriteDPData(int nIEC_Offset, int nData, int nMS1, int nMS2, int nMin, int nCTAct);
+extern int fnReadDPData(int nIEC_Offset, int nMS1, int nMS2, int nMin, int nCTAct);
+
 
 /**********************************************/
 /* Globals                                     */
@@ -772,6 +776,7 @@ nMoscadHours = mdt.hours;
        } /*end switch */
       }/*end if site_inx<MAX_RTU */
    } /*end if == 0*/
+   fnRetesz();
 }
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*Elkuld egy parancsot a DC vagy SC tabla alapjan																								  */
@@ -3439,4 +3444,355 @@ if (	nDPStart > 0)
 /*-----------------------------------------------------------------------------------------------*/
 
 
+/****************************************************************************/
+/* A program feladata: a paraméterként (index) megadott TMOK-k állapotváltozását 
+elküldi a szintén paraméterként megadott RTU-knak (szintén indexel megadva)
+- Az RTU-knak szerepelnie kell a site táblában!!!
+- A reteszes TMOK-k száma is paraméter
+- Az élesítve parancs értéke 1, a bénítva parancs értéke 2 
+- A függvényt az rx() függvény végén célszerû meghívni
+- cprog2.c ki lett egészítve 2 db. függvénnyel ( fnReadDPData, fnWriteDPData )
+- Ha az RTU másik front endben van, akkor a távirat 3 szó hosszúságú, a 3. szó az állásjelzés offsete
+
+																				*/
+/****************************************************************************/
+void fnRetesz(void)
+{
+#define  			RETESZ_TMOK_NUM		25	
+#define  			RETESZ_RTU_NUM		10	
+#define  			TX_LENGTH			3	
+
+
+	
+unsigned int		ReteszesTMOKNum;									/* Reteszes TMOK-k száma az adott front-endben */
+unsigned int		ReteszesRTUIndex[RETESZ_TMOK_NUM][RETESZ_RTU_NUM];	/* A reteszes TMOK-khoz tartozó RTU-k indexei a site táblában */
+unsigned int		ReteszesTMOK_RTUNum[RETESZ_TMOK_NUM];				/* Adott reteszes TMOK-khoz tartozó RTU-k száma */
+unsigned int		ReteszAllapotokKezdoCim;							/* Retesz állapotok kezdõcíme az IEC táblában */
+unsigned int		ReteszParancsokKezdoCim;							/* Retesz élesítés/bénítás parancsok kezdõcíme az IEC táblában */
+unsigned int		TMOKAllasjelzesOffsetek[RETESZ_TMOK_NUM];			/* Reteszes TMOK-k állásjelzéseinek az offsete */
+unsigned int		TMOK_ID[RETESZ_TMOK_NUM];							/* Reteszes TMOK-k azonosítója a kimenõ táviratban = DP offset */
+
+
+unsigned int		ReteszAllapotok[RETESZ_TMOK_NUM];
+static unsigned int		PrReteszAllapotok[RETESZ_TMOK_NUM];
+
+unsigned int		TMOKAllasjelzesek[RETESZ_TMOK_NUM];
+
+
+static unsigned int	prevTMOKAllasjelzesek[RETESZ_TMOK_NUM];
+unsigned int		i,j;
+char				message[500];
+int					nDPTblIndx;
+int					nOffset;
+unsigned short		nTxBuf[80];
+
+
+short				*p_col_DCAct; 
+
+
+
+/**********************************************************************************************************************/
+/* Kezdõértékek megadása - minden frontendnél más!!! 																  */
+/**********************************************************************************************************************/																													/**/
+ReteszAllapotokKezdoCim = 500;  /* DP3, 0 */																		/**/
+ReteszParancsokKezdoCim = 770;	/* DC4, 20 */																		/**/
+																													/**/
+ReteszesTMOKNum = 1;					/* Ennyi reteszfeltételes TMOK van az adott front-endben*/					/**/	
+																													/**/
+/* 0. TMOK: 90-90 RTU: Front end H -> TMOK -----------------------*/								/**/
+TMOKAllasjelzesOffsetek[0] = 301; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[0] =1250;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[0][0] = 277;			/* B redundancia */															/**/
+ReteszesTMOK_RTUNum[0] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+																													/**/
+/**********************************************************************************************************************/
+/**********************************************************************************************************************/
+
+
+/* Retesz bénítás/élesítés parancsok kezelése *************************************************************************/	
+   	for (i=0;i<RETESZ_TMOK_NUM;i++)
+   	{
+		/* Elõállítja az offsetbõl a DC tábla indexét, a tábla elsõ eleméhez képesti offsetet, a parancsoszlop pointerét*/
+   		fnDCTblIndx(ReteszParancsokKezdoCim+i, &nDCTblIndx, &nOffset, &p_col_DCAct);
+   		
+   		/* Ha jött egy élesítés parancs */
+   		if (p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]==1)
+   		{
+   			
+   			/* Beírja az éles állapotot a megfelelõ helyre*/
+   			fnWriteDPData(ReteszAllapotokKezdoCim+i,1, 0, 0, 0, 0);
+   			
+        	MOSCAD_sprintf(message,"Retesz állapot -  cím: %d, érték: %d", ReteszAllapotokKezdoCim+i,p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]);
+        	MOSCAD_error(message );
+        	
+        	/* Visszatörli a parancsot*/
+        	p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]=0;
+
+   			
+   			
+   		} /* end if */
+   		
+   		/* Ha jött egy bénítás parancs */
+   		if (p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]==2)
+   		{
+   			/* Beírja a bénítva állapotot a megfelelõ helyre*/
+   			fnWriteDPData(ReteszAllapotokKezdoCim+i,2, 0, 0, 0, 0);
+
+        	MOSCAD_sprintf(message,"Retesz állapot, cím %d, érték: %d", ReteszAllapotokKezdoCim+i,p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]);
+        	MOSCAD_error(message );
+        	
+        	/* Visszatörli a parancsot*/
+        	p_col_DCAct[ReteszParancsokKezdoCim+i-nOffset]=0;
+
+   			
+   		} /* end if */
+   	} /* end for */
+	
+	
+
+/* Elõállítja a reteszes TMOK-k állásjelzéseinek a tömbjét *************************************************/
+
+for (i=0;i<ReteszesTMOKNum;i++)
+{	
+	
+	if (TMOKAllasjelzesOffsetek[i]<1500)
+	{				
+		TMOKAllasjelzesek[i] = fnReadDPData(TMOKAllasjelzesOffsetek[i], 0, 0, 0, 0);
+	} /* end if */
+	
+} /* end for */
+
+
+
+/* Elõállítja a retesz állapotok tömbjét ********************************************************************************************/
+for (i=0;i<ReteszesTMOKNum;i++)
+{
+		ReteszAllapotok[i] = fnReadDPData(ReteszAllapotokKezdoCim+i, 0, 0, 0, 0);	
+} /* end for */
+
+
+
+/* Ha változott az állásjelzés és nincs bénítva a retesz, akkor elküldi a TMOK állásjelzését a kiserõmûnek (RTU-nak), vagy egy másik front endnek *****************/
+for (i=0;i<ReteszesTMOKNum ;i++)
+{
+	if( ((TMOKAllasjelzesek[i] != prevTMOKAllasjelzesek[i]) && ( ReteszAllapotok[i] != 2 ) ) || (ReteszAllapotok[i] == 1 && PrReteszAllapotok[i]!=1) )
+	{
+		/* elküldi az állapotot a kiserõmûnek */
+		for (j=0;j<ReteszesTMOK_RTUNum[i] ;j++)
+		{
+
+   		   	nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
+   		   	nTxBuf[1] = TMOKAllasjelzesek[i] << 14; /* Ez a formátum jön a TMOK-ból*/    	
+   		   	nTxBuf[2] = TMOK_ID[i];    	
+   		   		
+   		   	
+ 		   	MOSCAD_sprintf(message,"Állásjelzés küldése, index: %d, Value: %d, i: %d, j: %d,nTxBuf[1]: %d ,nTxBuf[2]: %d ",ReteszesRTUIndex[i][j],TMOKAllasjelzesek[i],i,j,nTxBuf[1],nTxBuf[2] );
+   			MOSCAD_error(message ); 
+ 
+   		   	
+			/* Tavirat elkuldese */
+			
+	 		  	if (MOSCAD_TxFrm(ReteszesRTUIndex[i][j], nTxBuf, TX_LENGTH*2) !=0 )
+ 			  	{
+					MOSCAD_sprintf(message,"Could not send parancs ,index: %d",ReteszesRTUIndex[i][j]);
+   				 	MOSCAD_error(message ); 				
+   				}     		    			
+		} /* end for*/
+	} /* end if */
+
+
+	if(  ReteszAllapotok[i] == 2 && PrReteszAllapotok[i]!=2 ) /* Ha retesz élesítésre vált akkor nulláz */
+	{
+		/* elküldi a nulla állapotot a kiserõmûnek */
+		for (j=0;j<ReteszesTMOK_RTUNum[i] ;j++)
+		{
+
+   		   	nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
+   		   	nTxBuf[1] = 0; /* Nullázza az állásjelzést */    	
+   		   	nTxBuf[2] = TMOK_ID[i];    	
+   		   		
+   		   	
+ 		   	MOSCAD_sprintf(message,"Állásjelzés nullázás, index: %d, Value: %d, i: %d, j: %d,nTxBuf[1]: %d ",ReteszesRTUIndex[i][j],TMOKAllasjelzesek[i],i,j,nTxBuf[1] );
+   			MOSCAD_error(message ); 
+ 
+   		   	
+			/* Tavirat elkuldese */
+			
+	 		  	if (MOSCAD_TxFrm(ReteszesRTUIndex[i][j], nTxBuf, TX_LENGTH*2) !=0 )
+ 			  	{
+					MOSCAD_sprintf(message,"Could not send parancs ,index: %d",ReteszesRTUIndex[i][j]);
+   				 	MOSCAD_error(message ); 				
+   				}     		    			
+		} /* end for*/	
+	} /* end if */
+
+
+
+/* Mindenképpen frissíti az állásjelzések tömbjét 	*/
+prevTMOKAllasjelzesek[i] = TMOKAllasjelzesek[i] ;
+PrReteszAllapotok[i]=ReteszAllapotok[i];	
+} /* end for */
+
+	
+} /* end fnRetesz ********************************************************************************************************************************/
+
+
+/****************************************************************************/
+/* Front end adatfogadás egy másik front endbõl, az új típusú reteszkezelés miatt										*/
+/****************************************************************************/
+void FRONTEND_DATA( unsigned char *rx_buf)
+{
+int		nI;	
+
+int		nIEC_Offset;
+
+int		nDPTblIndx;
+int		nMOSCAD_OffsetDP;
+
+int		nNMStart;
+
+int		nDPStart;
+unsigned int		nData;
+
+int		nVal;
+
+int		nMin;
+int		nMs1;
+int		nMs2;
+
+
+
+
+
+
+
+	p_col_RxBuf = (short *)(rx_buf);	
+
+        MOSCAD_sprintf(message,"Front end data: %d %d %d",p_col_RxBuf[0],p_col_RxBuf[1],p_col_RxBuf [2]);
+        MOSCAD_error(message );
+
+
+/* Kétbites állásjelzések, feldolgozása ----------------------------------------------------------------------------------------*/
+/* A program feltetelezi, hogy a ketbites jelzesek a 1. szotol kezdodnek az RxBuf-ban, a DP offset pedig a 2. szóban van*/
+
+		
+	nDPStart = 	p_col_RxBuf[2];
+
+
+if (nDPStart<1500)
+{	
+	/* DP tabla indexe, es offsete */
+	fnDPTblIndx(nDPStart,&nDPTblIndx,&nMOSCAD_OffsetDP);
+
+
+
+	/* 2 bites */
+   	if (MOSCAD_get_table_info (nDPTblIndx,&table_DP)!=0 )
+   		{
+        MOSCAD_sprintf(message,"No valid information in table: %d",nDPTblIndx);
+        MOSCAD_error(message );
+        return;
+   		}
+
+	p_col_DPH     = (short *)(table_DP.ColDataPtr[0]);			/* DPH -> CLOSE */
+	p_col_DPL     = (short *)(table_DP.ColDataPtr[1]);			/* DPL -> OPEN */
+	p_col_DP_MS1  = (short *)(table_DP.ColDataPtr[2]);
+	p_col_DP_MS2  = (short *)(table_DP.ColDataPtr[3]);
+	p_col_DP_MIN  = (short *)(table_DP.ColDataPtr[4]);
+	p_col_DP_CT   = (short *)(table_DP.ColDataPtr[5]); 						
+
+	nData = p_col_RxBuf[1];	
+	
+
+	
+	
+if (	nDPStart > 0)
+{
+	for (nI=0; nI < 1 && nI<2; nI++)
+	{	
+		
+				nVal = (nData << nI*2) & 0x8000;
+ 										
+ 				 				
+ 				
+ 				if (nVal > 0)
+					{
+						p_col_DPH[nDPStart+nI- nMOSCAD_OffsetDP]= 1;
+					}
+					else
+					{
+						p_col_DPH[nDPStart+nI- nMOSCAD_OffsetDP]= 0;
+					}
+	
+ 		
+				nVal = (nData << (nI*2+1)) & 0x8000;
+				
+				if (nVal > 0)
+					{
+						p_col_DPL[nDPStart+nI- nMOSCAD_OffsetDP]= 1;
+					}
+					else
+					{
+						p_col_DPL[nDPStart+nI- nMOSCAD_OffsetDP]= 0;
+					}		 		
+										
+					
+	    MOSCAD_sprintf(message,"Front end data: nDPTblIndx: %d nMOSCAD_OffsetDP: %d nData: %d, nVal: %d",nDPTblIndx,nMOSCAD_OffsetDP,nData, nVal);
+        MOSCAD_error(message );
+					
+	}
+ }/*end if*/	
+} /* end if */
+
+
+} /* FRONTEND data*/
+/*-----------------------------------------------------------------------------------------------*/
+
+
+/****************************************************************************/
+/* DP állapot lekérdezésre adott válasz 
+Az RTU indítja a lekérdezést, amikor újraindul, hogy kezdeti értéket kapjanak 
+az állásjelzések
+[0]: 100
+[1]: DP offsete											*/
+/****************************************************************************/
+void fnDP_LEK( unsigned char *rx_buf, int nSite_ID)
+{
+
+	
+	unsigned short          *p_col_RxBuf;
+	unsigned short			nDP;
+	int						nOffset;
+	unsigned short		nTxBuf[80];	
+	
+		p_col_RxBuf = (short *)(rx_buf);	
+
+		nOffset = p_col_RxBuf[1];
+
+        MOSCAD_sprintf(message,"DP lekérdezés: %d %d %d",p_col_RxBuf[0],p_col_RxBuf[1],p_col_RxBuf[2]);
+        MOSCAD_error(message );
+        
+        
+ if (nOffset <1500)
+ {
+	nDP=fnReadDPData(nOffset, 0, 0, 0, 0);
+	
+   	nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
+   	nTxBuf[1] = nDP << 14; /* Ez a formátum jön a TMOK-ból*/ 
+   	nTxBuf[2] = p_col_RxBuf[1];    	
+   	
+   				/* Tavirat elkuldese */
+			
+	 		  	if (MOSCAD_TxFrm(nSite_ID, nTxBuf, TX_LENGTH*2) !=0 )
+ 			  	{
+					MOSCAD_sprintf(message,"Could not send parancs ,index: %d",nSite_ID);
+   				 	MOSCAD_error(message ); 				
+   				}   
+
+	
+ } /* end if */
+
+	
+}
+/* end fnDP_LEK ***************************************************************************/
 
