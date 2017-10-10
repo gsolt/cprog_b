@@ -509,6 +509,7 @@ MOSCAD_init_sitetable();
 /* 274 Front end D										*/ MOSCAD_add_new_site(6000,RSLINK11);  /* Újfajta retesz kezelés miatt */
 /* 275 Front end F										*/ MOSCAD_add_new_site(8000,RSLINK11);  /* Újfajta retesz kezelés miatt */
 /* 276 Front end H										*/ MOSCAD_add_new_site(10000,RSLINK11);  /* Újfajta retesz kezelés miatt */
+/* 277 B redumdancia									*/ MOSCAD_add_new_site(8999,RSLINK11);  /* Újfajta retesz kezelés miatt */
 
 
 
