@@ -371,7 +371,7 @@ unsigned long	lSRAMLength;
 			setdat( (unsigned char *)&sT);
          	          	
         	 MOSCAD_largest_available_free_mem(&lLargest);
-	   		 sprintf(message,"Version 1.1.1 Largest available free memory: %ld,   sCPR[16].nDCStart: %d",lLargest,sCP.sCPR[16].nDCStart);
+	   		 sprintf(message,"Version 1.2.1 Largest available free memory: %ld,   sCPR[16].nDCStart: %d",lLargest,sCP.sCPR[16].nDCStart);
    			 MOSCAD_message(message );         	          	
          	
          	
@@ -718,8 +718,8 @@ nMoscadHours = mdt.hours;
 			/* Elvégzi az adatfeldolgozást */
  			nType = sTI[site_inx].nType;
  			
- 			/*	MOSCAD_sprintf(message,"Frame received, index: %d, type: %d, rx_buffer[0]: %d,rx_buffer[2]: %d",site_inx,nType,nRxBuf[0],nRxBuf[2]);
-   			 	MOSCAD_error(message ); 				*/
+ 				MOSCAD_sprintf(message,"Frame received, index: %d, type: %d, rx_buffer[0]: %d, rx_buffer[1]: %d, rx_buffer[2]: %d",site_inx,nType,nRxBuf[0], nRxBuf[1],nRxBuf[2]);
+   			 	MOSCAD_error(message ); 				
  
 			/*Szinkronizalasi igeny erkezett*/
 			
@@ -762,6 +762,10 @@ nMoscadHours = mdt.hours;
 			else if (nType == TYP_TMOK && nRxBuf[0] == 89 )
  			{
  				TMOK_DATA2(&sMOT[site_inx],rx_buffer);
+ 			} 	
+			else if (nType == TYP_FRONTEND && nRxBuf[0] == 100 )
+ 			{
+ 				FRONTEND_DATA(rx_buffer);
  			} 	
 	
 		
@@ -3501,7 +3505,7 @@ ReteszesTMOKNum = 1;					/* Ennyi reteszfeltételes TMOK van az adott front-endbe
 																													/**/
 /* 0. TMOK: 90-90 RTU: Front end H -> TMOK -----------------------*/								/**/
 TMOKAllasjelzesOffsetek[0] = 301; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
-TMOK_ID[0] =1250;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
+TMOK_ID[0] =0;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
 ReteszesRTUIndex[0][0] = 277;			/* B redundancia */															/**/
 ReteszesTMOK_RTUNum[0] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 																													/**/
@@ -3582,7 +3586,7 @@ for (i=0;i<ReteszesTMOKNum ;i++)
 		{
 
    		   	nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
-   		   	nTxBuf[1] = TMOKAllasjelzesek[i] << 14; /* Ez a formátum jön a TMOK-ból*/    	
+   		   	nTxBuf[1] = TMOKAllasjelzesek[i] ; /* << 14; Ez a formátum jön a TMOK-ból*/    	
    		   	nTxBuf[2] = TMOK_ID[i];    	
    		   		
    		   	
@@ -3711,7 +3715,7 @@ if (	nDPStart > 0)
 	for (nI=0; nI < 1 && nI<2; nI++)
 	{	
 		
-				nVal = (nData << nI*2) & 0x8000;
+				nVal = (nData << nI*2) & 0x0002;
  										
  				 				
  				
@@ -3725,7 +3729,7 @@ if (	nDPStart > 0)
 					}
 	
  		
-				nVal = (nData << (nI*2+1)) & 0x8000;
+				nVal = (nData << (nI*2+1)) & 0x0002;
 				
 				if (nVal > 0)
 					{
@@ -3778,7 +3782,7 @@ void fnDP_LEK( unsigned char *rx_buf, int nSite_ID)
 	nDP=fnReadDPData(nOffset, 0, 0, 0, 0);
 	
    	nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
-   	nTxBuf[1] = nDP << 14; /* Ez a formátum jön a TMOK-ból*/ 
+   	nTxBuf[1] = nDP; /* << 14;  Ez a formátum jön a TMOK-ból*/ 
    	nTxBuf[2] = p_col_RxBuf[1];    	
    	
    				/* Tavirat elkuldese */
