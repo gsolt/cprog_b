@@ -1712,7 +1712,8 @@ sT[0].sTI[155].nType = TYP_TMOK;
 
 	sT[0].sMOT[155].nIEC_SP			= 2679;		/* Egybites értékek IEC kezdõcíme*/
 	sT[0].sMOT[155].nIEC_DP			= 266;		/* Kétbites értékek IEC kezdõcíme*/
-	sT[0].sMOT[155].nIEC_NM			= 232;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[155].nIEC_NM			= 1020;		/* Mérések IEC kezdõcíme */		
+	sT[0].sMOT[155].nNMNum			= 4;		/* Analóg mérések száma*/
 
 
 /*  Balf, gazmotor  -----------------------------------------------------------*/	

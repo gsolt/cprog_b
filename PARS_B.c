@@ -332,7 +332,7 @@ ST[0].nSiteList[151]	=3090;	ST[0].nLinkList[151]	=RADIO2_1;	/* TMOK 50-22			RADI
 ST[0].nSiteList[152]	=3091;	ST[0].nLinkList[152]	=RADIO2_1;	/* TMOK 50-23			RADIO2_1 		VESZ*/
 ST[0].nSiteList[153]	=2019;	ST[0].nLinkList[153]	=RADIO1_4;	/* Gyor, Raba repter	RADIO1_4 		GYR*/
 ST[0].nSiteList[154]	=2017;	ST[0].nLinkList[154]	=RADIO1_4;	/* Gyor, EETEK			RADIO1_4 		GYR*/
-ST[0].nSiteList[155]	=3095;	ST[0].nLinkList[155]	=RADIO1_6;	/* TMOK 61-80, PM6		RADIO1_6 		GYR*/
+ST[0].nSiteList[155]	=3095;	ST[0].nLinkList[155]	=RADIO3_1;	/* TMOK 61-80, PM6		RADIO1_6 		GYR*/
 ST[0].nSiteList[156]	=2020;	ST[0].nLinkList[156]	=RADIO3_7;	/* Balf, gazmotor 		RADIO3_4 		SOP*/
 ST[0].nSiteList[157]	=109;	ST[0].nLinkList[157]	=RADIO5_5;	/* TMOK 40-70	 		RADIO5_7 		KOR*/
 ST[0].nSiteList[158]	=3096;	ST[0].nLinkList[158]	=RADIO7_6;	/* TMOK 31-67	 		RADIO7_5 		BI*/
