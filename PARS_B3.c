@@ -435,6 +435,10 @@ sT[0].sCP[0].sCPR[270].nDCStart =502; sT[0].sCP[0].sCPR[270].nDCNum = 1;   sT[0]
 sT[0].sCP[0].sCPR[271].nDCStart =742; sT[0].sCP[0].sCPR[271].nDCNum = 4;   sT[0].sCP[0].sCPR[271].nSCStart = 746;  sT[0].sCP[0].sCPR[271].nAckStart =0;    sT[0].sCP[0].sCPR[271].nAckNum =0; sT[0].sCP[0].sCPR[271].nSPOffsetCS = 4778; sT[0].sCP[0].sCPR[271].nSPOffsetLek = 4779;
 sT[0].sCP[0].sCPR[272].nDCStart =764; sT[0].sCP[0].sCPR[272].nDCNum = 1;   sT[0].sCP[0].sCPR[272].nSCStart = 765;  sT[0].sCP[0].sCPR[272].nAckStart =766;  sT[0].sCP[0].sCPR[272].nAckNum =1; sT[0].sCP[0].sCPR[272].nSPOffsetCS = 4127; sT[0].sCP[0].sCPR[272].nSPOffsetLek = 4128;
 sT[0].sCP[0].sCPR[273].nDCStart =767; sT[0].sCP[0].sCPR[273].nDCNum = 1;   sT[0].sCP[0].sCPR[273].nSCStart = 768;  sT[0].sCP[0].sCPR[273].nAckStart =0;    sT[0].sCP[0].sCPR[273].nAckNum =0; sT[0].sCP[0].sCPR[273].nSPOffsetCS = 4093; sT[0].sCP[0].sCPR[273].nSPOffsetLek = 4094;
+sT[0].sCP[0].sCPR[274].nDCStart = 0;  sT[0].sCP[0].sCPR[274].nDCNum = 0;   sT[0].sCP[0].sCPR[274].nSCStart = 0;    sT[0].sCP[0].sCPR[274].nAckStart =0;    sT[0].sCP[0].sCPR[274].nAckNum =0; sT[0].sCP[0].sCPR[274].nSPOffsetCS = 0;    sT[0].sCP[0].sCPR[274].nSPOffsetLek = 0;
+sT[0].sCP[0].sCPR[275].nDCStart = 0;  sT[0].sCP[0].sCPR[275].nDCNum = 0;   sT[0].sCP[0].sCPR[275].nSCStart = 0;    sT[0].sCP[0].sCPR[275].nAckStart =0;    sT[0].sCP[0].sCPR[275].nAckNum =0; sT[0].sCP[0].sCPR[275].nSPOffsetCS = 0;    sT[0].sCP[0].sCPR[275].nSPOffsetLek = 0;
+sT[0].sCP[0].sCPR[276].nDCStart = 0;  sT[0].sCP[0].sCPR[276].nDCNum = 0;   sT[0].sCP[0].sCPR[276].nSCStart = 0;    sT[0].sCP[0].sCPR[276].nAckStart =0;    sT[0].sCP[0].sCPR[276].nAckNum =0; sT[0].sCP[0].sCPR[276].nSPOffsetCS = 0;    sT[0].sCP[0].sCPR[276].nSPOffsetLek = 0;
+sT[0].sCP[0].sCPR[277].nDCStart = 0;  sT[0].sCP[0].sCPR[277].nDCNum = 0;   sT[0].sCP[0].sCPR[277].nSCStart = 0;    sT[0].sCP[0].sCPR[277].nAckStart =0;    sT[0].sCP[0].sCPR[277].nAckNum =0; sT[0].sCP[0].sCPR[277].nSPOffsetCS = 0;    sT[0].sCP[0].sCPR[277].nSPOffsetLek = 0;
 
 	
 /* Veszprém átjátszó -----------------------------------------------------------*/	
