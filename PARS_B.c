@@ -410,7 +410,7 @@ ST[0].nSiteList[229]	=3156;	ST[0].nLinkList[229]	=LINE1;		/* Dorog DAC      		Rs
 ST[0].nSiteList[230]	=3200;	ST[0].nLinkList[230]	=RADIO6_3;	/* TMOK 51-01      		RADIO2_6 		VESZ*/
 ST[0].nSiteList[231]	=3201;	ST[0].nLinkList[231]	=RADIO5_1;	/* TMOK 11-66      		RADIO1_5 		GYR*/
 ST[0].nSiteList[232]	=3202;	ST[0].nLinkList[232]	=RADIO4_5;	/* TMOK 70-60      		RADIO4_5 		PAP*/
-ST[0].nSiteList[233]	=3180;	ST[0].nLinkList[233]	=RADIO1_2;	/* TMOK 10-24      		RADIO1_2 		GYR*/
+ST[0].nSiteList[233]	=3180;	ST[0].nLinkList[233]	=RADIO1_5;	/* TMOK 10-24      		RADIO1_2 		GYR*/
 ST[0].nSiteList[234]	=3181;	ST[0].nLinkList[234]	=RADIO1_5;	/* TMOK 11-28      		RADIO1_5 		GYR*/
 ST[0].nSiteList[235]	=3210;	ST[0].nLinkList[235]	=RADIO2_3;	/* TMOK 50-96      		RADIO2_2 		VESZ*/
 ST[0].nSiteList[236]	=3204;	ST[0].nLinkList[236]	=RADIO6_2;	/* TMOK 51-53      		RADIO2_3 		VESZ*/
