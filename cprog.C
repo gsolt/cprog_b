@@ -1081,7 +1081,7 @@ if (pMOT->nIEC_SP_FLAG_NUM > 0)
 
 	/*Terhelés szakaszolók állásjelzései*/
 	
-	nDPStart = nDPStart = 	pMOT->nIEC_DP;
+	nDPStart =  	pMOT->nIEC_DP;
 	/* DP tabla indexe, es offsete */
 	fnDPTblIndx(nDPStart,&nDPTblIndx,&nMoscadOffset);
 
