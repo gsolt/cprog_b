@@ -3501,7 +3501,7 @@ short				*p_col_DCAct;
 ReteszAllapotokKezdoCim = 500;  /* DP3, 0 */																		/**/
 ReteszParancsokKezdoCim = 770;	/* DC4, 20 */																		/**/
 																													/**/
-ReteszesTMOKNum = 3;					/* Ennyi reteszfeltételes TMOK van az adott front-endben*/					/**/	
+ReteszesTMOKNum = 4;					/* Ennyi reteszfeltételes TMOK van az adott front-endben*/					/**/	
 																													/**/
 /* 0. TMOK: 90-90 RTU: Front end H -> TMOK -----------------------*/								/**/
 TMOKAllasjelzesOffsetek[0] = 301; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
@@ -3522,6 +3522,11 @@ TMOK_ID[2] =1251;						/* TMOK azonosítója a táviratban = DP offset */								/*
 ReteszesRTUIndex[2][0] = 275;			/* F Front end*/															/**/
 ReteszesTMOK_RTUNum[2] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 																													/**/
+/* 3. TMOK: 11-35 RTU: Front end H -> Tét, 055-39 -----------------------*/								/**/
+TMOKAllasjelzesOffsetek[3] = 385; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[3] =1256;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[3][0] = 276;			/* H front end */															/**/
+ReteszesTMOK_RTUNum[3] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
                                                           
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
