@@ -292,7 +292,7 @@ ST[0].nSiteList[111]	=3076;	ST[0].nLinkList[111]	=RADIO6_1;	/* TMOK 51-28,		 	RA
 ST[0].nSiteList[112]	=130;	ST[0].nLinkList[112]	=RADIO4_5;	/* TMOK 70-75,		 	RADIO4_5 		PAP*/
 ST[0].nSiteList[113]	=131;	ST[0].nLinkList[113]	=RADIO4_6;	/* TMOK 74-01,		 	RADIO4_5 		PAP*/
 ST[0].nSiteList[114]	=152;	ST[0].nLinkList[114]	=RADIO6_3;	/* TMOK 51-20,		 	RADIO2_2 		VESZ*/
-ST[0].nSiteList[115]	=3072;	ST[0].nLinkList[115]	=RADIO4_6;	/* TMOK 70-88,		 	RADIO4_6 		PAP*/
+ST[0].nSiteList[115]	=3072;	ST[0].nLinkList[115]	=RADIO4_5;	/* TMOK 70-88,		 	RADIO4_6 		PAP*/
 ST[0].nSiteList[116]	=138;	ST[0].nLinkList[116]	=RADIO4_5;	/* TMOK 74-02,		 	RADIO4_5 		PAP*/
 ST[0].nSiteList[117]	=139;	ST[0].nLinkList[117]	=RADIO4_6;	/* TMOK 72-65,		 	RADIO4_6 		PAP*/
 ST[0].nSiteList[118]	=3151;	ST[0].nLinkList[118]	=RADIO8_4;	/* Dorog atjatszo,	 	RADIO8_1 		ESZT*/
