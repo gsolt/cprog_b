@@ -3534,7 +3534,7 @@ nReteszOffset[2] = 2;             /* DC parancs és reteszfunkció DP állapot offs
 TMOKAllasjelzesOffsetek[3] = 385; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
 TMOK_ID[3] =1256;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
 ReteszesRTUIndex[3][0] = 276;			/* H front end */															/**/
-ReteszesTMOK_RTUNum[3] = 3;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+ReteszesTMOK_RTUNum[3] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 nReteszPar[3] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
 nReteszOffset[3] = 3;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
 
