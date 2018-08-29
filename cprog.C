@@ -763,6 +763,13 @@ nMoscadHours = mdt.hours;
  			{
  				TMOK_DATA2(&sMOT[site_inx],rx_buffer);
  			} 	
+ 			else if ( (nType == TYP_TAL || nType == TYP_MOT  ) && nRxBuf[0] == 101 && buff_len == 3 * 2 ) /* A front enden keresztüli reteszkezelés miatt */
+ 			{
+ 				
+				fnDP_LEK( rx_buffer, site_inx);		
+ 		    			    	
+ 			}
+
 			else if (nType == TYP_FRONTEND && nRxBuf[0] == 100 )
  			{
  				FRONTEND_DATA(rx_buffer);
