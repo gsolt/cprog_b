@@ -3511,7 +3511,7 @@ static int    nReteszOffset[RETESZ_TMOK_NUM];			/* A retesz állappot offsete, ha
 ReteszAllapotokKezdoCim = 500;  /* DP3, 0 */																		/**/
 ReteszParancsokKezdoCim = 770;	/* DC4, 20 */																		/**/
 																													/**/
-ReteszesTMOKNum = 22;					/* Ennyi reteszfeltételes TMOK van az adott front-endben*/					/**/	
+ReteszesTMOKNum = 26;					/* Ennyi reteszfeltételes TMOK van az adott front-endben*/					/**/	
 																													/**/
 /* 0. TMOK: 90-90 RTU: Front end H -> TMOK 48642 -----------------------*/								/**/
 TMOKAllasjelzesOffsetek[0] = 301; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
@@ -3626,11 +3626,15 @@ ReteszesTMOK_RTUNum[13] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnás
 nReteszPar[13] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
 nReteszOffset[13] = 13;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
              
-/* 14. TMOK: 11-99 RTU: Front end F -> Felpéc Biogáz  -----------------------*/								/* Tesztelve */
+/* 14. TMOK: 11-99 RTU: Front end F -> Felpéc Biogáz, Front end H  -----------------------*/								/* Tesztelve */
 TMOKAllasjelzesOffsetek[14] = 388; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+
 TMOK_ID[14][0] =1252;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
 ReteszesRTUIndex[14][0] = 275;			/* Front end F */															/**/
-ReteszesTMOK_RTUNum[14] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+TMOK_ID[14][1] =1283;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[14][1] = 276;			/* Front end H */															/**/
+
+ReteszesTMOK_RTUNum[14] = 2;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 nReteszPar[14] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
 nReteszOffset[14] = 14;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
              
@@ -3689,6 +3693,38 @@ ReteszesRTUIndex[21][0] = 276;			/* Front end H */															/**/
 ReteszesTMOK_RTUNum[21] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 nReteszPar[21] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
 nReteszOffset[21] = 21;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
+
+/* 22. TMOK: 54-02 RTU: Front end H -> Nagyvázsony 099/2 PV erõmû  -----------------------*/								/* Tesztelve */
+TMOKAllasjelzesOffsetek[22] = 406; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[22][0] =1280;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[22][0] = 276;			/* Front end H */															/**/
+ReteszesTMOK_RTUNum[22] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+nReteszPar[22] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
+nReteszOffset[22] = 22;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
+
+/* 23. TMOK: 61-81 RTU: Front end H -> Fertõszéplak 424/2 PV erõmû  -----------------------*/								/* Tesztelve */
+TMOKAllasjelzesOffsetek[23] = 107; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[23][0] =1282;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[23][0] = 276;			/* Front end H */															/**/
+ReteszesTMOK_RTUNum[23] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+nReteszPar[23] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
+nReteszOffset[23] = 23;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
+
+/* 24. TMOK: 42-12 RTU: Front end G -> Gyõrvár PV erõmûvek  -----------------------*/								/* Tesztelve */
+TMOKAllasjelzesOffsetek[24] = 136; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[24][0] =3;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[24][0] = 277;			/* B redundancia*/															/**/
+ReteszesTMOK_RTUNum[24] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+nReteszPar[24] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
+nReteszOffset[24] = 24;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
+
+/* 25. TMOK: 90-86 RTU: Front end H -> Zalameggyes 62 PV erõmû  -----------------------*/								/* Tesztelve */
+TMOKAllasjelzesOffsetek[25] = 285; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
+TMOK_ID[25][0] =1285;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[25][0] = 276;			/* H front end */															/**/
+ReteszesTMOK_RTUNum[25] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
+nReteszPar[25] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
+nReteszOffset[25] = 25;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
                                                           
 /**********************************************************************************************************************/
 /**********************************************************************************************************************/
