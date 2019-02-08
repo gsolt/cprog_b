@@ -201,7 +201,7 @@ ST[0].nSiteList[20]	=79;	ST[0].nLinkList[20]	=RADIO1_5;	/* TMOK 11-02, 			RADIO1
 ST[0].nSiteList[21]	=80;	ST[0].nLinkList[21]	=RADIO4_1;	/* TMOK 11-54, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[22]	=82;	ST[0].nLinkList[22]	=RADIO1_5;	/* TMOK 11-78, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[23]	=3051;	ST[0].nLinkList[23]	=RADIO1_5;	/* TMOK 10-77, 			RADIO1_5 		GYR*/
-ST[0].nSiteList[24]	=3031;	ST[0].nLinkList[24]	=RADIO1_5;	/* TMOK 11-08, 			RADIO1_5 		GYR*/
+ST[0].nSiteList[24]	=3031;	ST[0].nLinkList[24]	=RADIO1_4;	/* TMOK 11-08, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[25]	=3032;	ST[0].nLinkList[25]	=RADIO1_5;	/* TMOK 11-87, 			RADIO1_5 		GYR*/
 ST[0].nSiteList[26]	=70;	ST[0].nLinkList[26]	=RADIO1_6;	/* TMOK 62-20, 			RADIO1_6 		GYR*/
 ST[0].nSiteList[27]	=67;	ST[0].nLinkList[27]	=RADIO1_6;	/* TMOK 64-30, 			RADIO1_6 		GYR*/
