@@ -3847,7 +3847,7 @@ for (i=0;i<ReteszesTMOKNum;i++)
 /* Ha változott az állásjelzés és nincs bénítva a retesz, akkor elküldi a TMOK állásjelzését a kiserõmûnek (RTU-nak), vagy egy másik front endnek *****************/
 for (i=0;i<ReteszesTMOKNum ;i++)
 {
-	if( ((TMOKAllasjelzesek[i] != prevTMOKAllasjelzesek[i]) && ( ReteszAllapotok[i] != 2 ) ) || (ReteszAllapotok[i] == 1 && PrReteszAllapotok[i]!=1) )
+	if( ((TMOKAllasjelzesek[i] != prevTMOKAllasjelzesek[i]) && ( ReteszAllapotok[i] == 1 ) ) || (ReteszAllapotok[i] == 1 && PrReteszAllapotok[i]!=1) )
 	{
 		/* elküldi az állapotot a kiserõmûnek */
 		for (j=0;j<ReteszesTMOK_RTUNum[i] ;j++)
