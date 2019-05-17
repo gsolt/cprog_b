@@ -566,7 +566,7 @@ MOSCAD_message(message );
 
 /* Radios RTU-k indexei, periodikus lekerdezes miatt*/
 /* K1 : GYOR*/
-ST[0].sRAD_K1[0].nRtuNumRad = 84; /*72*/
+ST[0].sRAD_K1[0].nRtuNumRad = 85; /*72*/
 ST[0].sRAD_K1[0].nIndx[0]=2; 
 ST[0].sRAD_K1[0].nIndx[1]=3;/*3*/
 ST[0].sRAD_K1[0].nIndx[2]=6;/*3*/
@@ -651,11 +651,12 @@ ST[0].sRAD_K1[0].nIndx[80]=245;
 ST[0].sRAD_K1[0].nIndx[81]=250;
 ST[0].sRAD_K1[0].nIndx[82]=251;
 ST[0].sRAD_K1[0].nIndx[83]=254;
+ST[0].sRAD_K1[0].nIndx[84]=264;
 
 
 
 /* K2 : VESZ, TAP, PAP, SUM */
-ST[0].sRAD_K2[0].nRtuNumRad = 113; 
+ST[0].sRAD_K2[0].nRtuNumRad = 110; 
 
 ST[0].sRAD_K2[0].nIndx[0]=1;
 ST[0].sRAD_K2[0].nIndx[1]=5; /*5*/
@@ -767,14 +768,11 @@ ST[0].sRAD_K2[0].nIndx[106]=269;
 ST[0].sRAD_K2[0].nIndx[107]=191;
 ST[0].sRAD_K2[0].nIndx[108]=195;
 ST[0].sRAD_K2[0].nIndx[109]=271;
-ST[0].sRAD_K2[0].nIndx[110]=270;
-ST[0].sRAD_K2[0].nIndx[111]=272;
-ST[0].sRAD_K2[0].nIndx[112]=273;
 
 
 
 /* K3 : ESZT, SOP, KOR, BI */
-ST[0].sRAD_K3[0].nRtuNumRad = 71; /*55*/
+ST[0].sRAD_K3[0].nRtuNumRad = 74; /*55*/
 
 ST[0].sRAD_K3[0].nIndx[0]=8; /*8*/
 ST[0].sRAD_K3[0].nIndx[1]=32; /*32*/
@@ -847,6 +845,9 @@ ST[0].sRAD_K3[0].nIndx[67]=266;
 ST[0].sRAD_K3[0].nIndx[68]=268;
 ST[0].sRAD_K3[0].nIndx[69]=190;
 ST[0].sRAD_K3[0].nIndx[70]=118;
+ST[0].sRAD_K3[0].nIndx[71]=270;
+ST[0].sRAD_K3[0].nIndx[72]=272;
+ST[0].sRAD_K3[0].nIndx[73]=273;
 
 
 
