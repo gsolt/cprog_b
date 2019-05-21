@@ -3538,8 +3538,8 @@ ReteszesRTUIndex[2][0] = 275;			/* F Front end*/															/**/
 TMOK_ID[2][1] =1296;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
 ReteszesRTUIndex[2][1] = 276;			/* H Front end*/															/**/
 
-TMOK_ID[3][1] =1296;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
-ReteszesRTUIndex[3][1] = 4;			/* B redundacia */															/**/
+TMOK_ID[2][2] =4;						/* TMOK azonosítója a táviratban = DP offset */								/**/															
+ReteszesRTUIndex[2][2] = 277;			/* B redundacia */															/**/
 
 ReteszesTMOK_RTUNum[2] = 3;				/* Az adott indexû TMOK ennyi kábelköri állomnással kommunikál */			/**/
 nReteszPar[2] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
