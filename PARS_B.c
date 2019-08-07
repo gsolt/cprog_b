@@ -386,7 +386,7 @@ ST[0].nSiteList[205]	=3147;	ST[0].nLinkList[205]	=RADIO3_3;	/* Sopron, Szemettel
 ST[0].nSiteList[206]	=3148;	ST[0].nLinkList[206]	=RADIO2_1;	/* Veszpr, Csolnoky kor RADIO2_1 		VESZ*/
 ST[0].nSiteList[207]	=3149;	ST[0].nLinkList[207]	=RADIO9_1;	/* Tapolca, Talus		RADIO9_1 		TAP*/
 ST[0].nSiteList[208]	=3150;	ST[0].nLinkList[208]	=RADIO9_9;	/* Kekkut, MOSCAD-L 	RADIO9_3		TAP*/
-ST[0].nSiteList[209]	=305;	ST[0].nLinkList[209]	=RADIO1_4;	/* TMOK 11-10			RADIO1_5 		GYR*/
+ST[0].nSiteList[209]	=305;	ST[0].nLinkList[209]	=RADIO1_5;	/* TMOK 11-10			RADIO1_5 		GYR*/
 ST[0].nSiteList[210]	=3155;	ST[0].nLinkList[210]	=RADIO8_2;	/* TMOK 21-15,21-73		RADIO8_1 		ESZT*/
 ST[0].nSiteList[211]	=3157;	ST[0].nLinkList[211]	=RADIO1_1;	/* TMOK 10-74			RADIO1_5 		GYR*/
 ST[0].nSiteList[212]	=3158;	ST[0].nLinkList[212]	=RADIO1_1;	/* TMOK 11-22      		RADIO1_5 		GYR*/
