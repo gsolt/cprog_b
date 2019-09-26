@@ -3851,7 +3851,7 @@ ReteszesTMOK_RTUNum[39] = 1;				/* Az adott indexû TMOK ennyi kábelköri állomnás
 nReteszPar[39] = 1;                /* 1: tartozik hozzá DC parancs, 0: nem tartozik hozzá DC parancs */
 nReteszOffset[39] = 39;             /* DC parancs és reteszfunkció DP állapot offsete, ha tartozik hozzá DC parancs*/
 
-/* 40. TMOK: 72-91 RTU: Front end H ->  Kolontár 324 PV erõmû  -----------------------*/								/* Tesztelve */
+/* 40. TMOK: 61-59 RTU: Front end H ->  Fertõd 072/14,15,16,19,20 PV erõmû  -----------------------*/								/* Tesztelve */
 TMOKAllasjelzesOffsetek[40] = 434; 		/* Az állásjelzés offsete a DP adatbázisban */								/**/
 TMOK_ID[40][0] =1314;	      					/* TMOK azonosítója a táviratban = DP offset */								/**/															
 ReteszesRTUIndex[40][0] = 276;			/* H front end */															/**/
