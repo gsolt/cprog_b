@@ -365,7 +365,7 @@ ST[0].nSiteList[184]	=3123;	ST[0].nLinkList[184]	=RADIO7_5;	/* TMOK 87-72	 		RAD
 ST[0].nSiteList[185]	=3124;	ST[0].nLinkList[185]	=RADIO7_6;	/* TMOK 87-90	 		RADIO7_5 		BI*/
 ST[0].nSiteList[186]	=3134;	ST[0].nLinkList[186]	=RADIO4_1;	/* TMOK 86-88	 		RADIO4_6 		PAP*/
 ST[0].nSiteList[187]	=3135;	ST[0].nLinkList[187]	=RADIO1_5;	/* TMOK 86-95	 		RADIO1_5 		GYR*/
-ST[0].nSiteList[188]	=45;	ST[0].nLinkList[188]	=RADIO1_1;	/* TMOK 62-23	 		RADIO1_1 		GYR*/
+ST[0].nSiteList[188]	=45;	ST[0].nLinkList[188]	=RADIO1_5;	/* TMOK 62-23	 		RADIO1_1 		GYR*/
 ST[0].nSiteList[189]	=3154;	ST[0].nLinkList[189]	=RADIO7_1;	/* Esztergom,elmenyfurdoRADIO8_1 		ESZT*/
 ST[0].nSiteList[190]	=3223;	ST[0].nLinkList[190]	=RADIO8_4;	/* Nyergesújfalu, Etertech RADIO8_5		ESZT*/
 ST[0].nSiteList[191]	=5042;	ST[0].nLinkList[191]	=RADIO9_6;	/* TMOK 90-82	 		RADIO9_5 		SUM*/
