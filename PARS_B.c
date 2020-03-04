@@ -256,7 +256,7 @@ ST[0].nSiteList[75]	=2007;	ST[0].nLinkList[75]	=LINE1;		/* Kormend atjatszo,	RST
 ST[0].nSiteList[76]	=3053;	ST[0].nLinkList[76]	=RADIO2_1;	/* TMOK 53-31, 			RADIO2_1 		VESZ*/
 ST[0].nSiteList[77]	=3047;	ST[0].nLinkList[77]	=RADIO2_1;	/* TMOK 53-39, 			RADIO2_1 		VESZ*/
 ST[0].nSiteList[78]	=3020;	ST[0].nLinkList[78]	=RADIO3_1;	/* TMOK 60-45, 			RADIO3_1 		SOP*/
-ST[0].nSiteList[79]	=3060;	ST[0].nLinkList[79]	=RADIO4_1;	/* TMOK 86-55, 			RADIO4_6 		PAP*/
+ST[0].nSiteList[79]	=3060;	ST[0].nLinkList[79]	=RADIO4_6;	/* TMOK 86-55, 			RADIO4_6 		PAP*/
 ST[0].nSiteList[80]	=3054;	ST[0].nLinkList[80]	=RADIO4_1;	/* TMOK 71-65, 			RADIO4_6 		GYR*/
 ST[0].nSiteList[81]	=3050;	ST[0].nLinkList[81]	=RADIO2_3;	/* TMOK 72-04, 			RADIO2_2 		VESZ*/
 ST[0].nSiteList[82]	=3094;	ST[0].nLinkList[82]	=RADIO2_8;	/* TMOK 71-11, 			RADIO2_2 		VESZ*/
